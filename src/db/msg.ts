@@ -11,8 +11,8 @@ const MsgSchema = new mongoose.Schema({
     required: true
   },
   created_at: {
-    type: String,
-    required: true
+    type: Date,
+    default: Date.now
   }
 })
 export const Msg = mongoose.model(msgCollection, MsgSchema)

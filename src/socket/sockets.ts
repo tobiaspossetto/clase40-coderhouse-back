@@ -1,5 +1,7 @@
+import MsgController from '../controllers/Msg.controller'
 import ProductsController from '../controllers/Products.controller'
 const ProductController = new ProductsController()
+const MyMsgController = new MsgController()
 export default (io: any) => {
   io.on('connection', async (io: any) => {
     console.log('new user connected')
@@ -15,5 +17,18 @@ export default (io: any) => {
       const res = await ProductController.getProducts()
       io.emit('GET_PRODUCTS', res)
     })
+
+    io.on('NEW_MSG', async (data: any) => {
+      MyMsgController.createMsg({
+        author: 'autorx',
+        message: 'masdasfdarfewfsadfaretgseagdsag'
+
+      })
+    })
+    io.on('GET_MSGS', async () => {
+      const res = await MyMsgController.getMsgs()
+      io.emit('GET_MSGS', res)
+    }
+    )
   })
 }
