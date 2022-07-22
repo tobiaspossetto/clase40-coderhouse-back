@@ -16,8 +16,8 @@ const ProdSchema = new mongoose.Schema({
     required: true
   },
   created_at: {
-    type: String,
-    required: false
+    type: Date,
+    default: Date.now
   }
 })
 export const Product = mongoose.model(prodCollection, ProdSchema)

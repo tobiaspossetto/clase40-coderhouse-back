@@ -22,6 +22,7 @@ app.use(express.json())
 
 app.use(cookieParser())
 getConnectionMongo()
+app.use('/api/', require('./routes/routes'))
 app.set('views', './src/views')
 app.set('view engine', 'pug')
 

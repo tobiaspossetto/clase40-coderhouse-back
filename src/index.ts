@@ -13,5 +13,5 @@ app.use((req, res, next) => {
 })
 
 sockets(io)
-app.use('/api', require('./routes/routes'))
+
 server.listen(4000, () => console.log('Server started!'))
